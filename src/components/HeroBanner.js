@@ -23,6 +23,7 @@ const HeroBanner = () => {
                       height="25"
                       viewBox="0 0 24 25"
                       fill="none"
+                        className="animate-bounce mt-1"
                     >
                       <g clip-path="url(#clip0_925_427)">
                         <path
