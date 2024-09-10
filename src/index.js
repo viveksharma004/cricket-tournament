@@ -7,10 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter} from "react-router-dom"
 import Main from "./Main"
+import {Toaster} from "react-hot-toast";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-  <BrowserRouter><Main/></BrowserRouter>
+  <BrowserRouter><Main/><Toaster/></BrowserRouter>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

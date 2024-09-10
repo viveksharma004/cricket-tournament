@@ -8,15 +8,17 @@ import HeroBanner from './components/HeroBanner';
 import Join from './components/Join';
 import MatchList from './components/MatchList';
 import MatchResult from './components/MatchResult';
+// import {useState} from "react";
 // import Team from './components/Team';
 import Testimonials from './components/Testimonials';
 function App() {
+    // const [user, setUser] = useState("");
   return (
-    <div classNameName="App">
+    <div className="App">
 
 <div id="main-wrapper" className="main-wrapper overflow-hidden">
 
-<Header/>
+<Header />
 {/* <!-- Header Area end -->
 
 <!-- Hero Banner start --> */}
@@ -63,7 +65,7 @@ function App() {
 
 
 
-<div className="modal fade" id="videoModal" tabindex="-1">
+<div className="modal fade" id="videoModal" tabIndex={-1} >
     <div className="modal-dialog" role="document">
         <div className="modal-content">
             <div className="modal-body">

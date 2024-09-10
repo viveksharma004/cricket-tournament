@@ -3,10 +3,12 @@ import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import login from "../images/login.png";
 import logobatball from "../images/logobatball.jpg"
+import {toast} from "react-hot-toast"
+import {useNavigate} from "react-router-dom"
 
 
 export default function Form() {
-
+    const navigate =useNavigate();
     const [formData, setFormData] = useState({
         firstName : "",
         lastName : "",
@@ -28,14 +30,28 @@ export default function Form() {
         });
     }
 
-    function submitHandler(event){
+    async function submitHandler(event){
         event.preventDefault();
 
         let data = Object.keys(formData).map((key) => `${key} = ${formData[key]}`);
         // join() returns an array as a string
         data = data.join(" \n");
+        
+        const response=await fetch("https://cricket-tournament-backend.onrender.com/api/v1/createUser",{
+            method: "POST",
+            headers:  {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData),
+        })
         alert(data);
-        console.log(formData);
+        console.log(response);
+        if(response.status===200){
+            toast.success("User Registered Successfully...");
+            console.log("inside section");
+            navigate("/login");
+        }
+        else{
+            toast.error("User Registration Failed");
+        }
     }
     const [password, setPassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState(false)
@@ -70,7 +86,7 @@ export default function Form() {
         <div>
             <label 
             htmlFor="lastName"
-            className='font-medium text-sm'>Last name</label>
+            className='font-medium text-sm'>Last Name</label>
 
             <input 
             type='text'
@@ -88,7 +104,7 @@ export default function Form() {
         <div>
             <label 
             htmlFor="email"
-            className='font-medium text-sm'>Email address</label>
+            className='font-medium text-sm'>Email Address</label>
 
             <input 
             type="email" 
@@ -186,7 +202,7 @@ export default function Form() {
                 </div>
                 <div>
                     {/* <label htmlFor="comments"  className='font-medium text-sm'></label> */}
-                    <p className='text text-gray-800'>Agree to the Terms and Conditions apply</p>
+                    <p className='text text-slate-500'>Agree to the Terms and Conditions apply</p>
                 </div>
             </div>
         </div> 
