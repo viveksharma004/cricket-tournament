@@ -36,7 +36,7 @@ const Header = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="col-lg-2">
+                <div className="col-lg-4">
                     <form action="index.html" className="input-group search-bar">
                         <input type="text" placeholder="Search..." required=""/>
                         <button className="search" type="submit"><i className="far fa-search search-icon"></i></button>
